@@ -32,12 +32,12 @@ class MastersModel(models.Model):
     first_name = models.CharField('Имя', max_length=20)
     last_name = models.CharField('Отчество', max_length=20)
     photo = models.ImageField('Картинка', upload_to='masters/%Y/%m/%d')
-    speciality = models.CharField("Специальность")
+    speciality = models.CharField("Специальность", max_length=50)
     experience = models.DateField('Когда начало карьеры')
-    slug = models.SlugField('Слаг')
+    slug = models.SlugField('Слаг', max_length=150)
 
     def __str__(self):
-        return f"{self.second_name} {self.first_name} {self.first_name}"
+        return f"{self.second_name}-{self.first_name}-{self.first_name}"
 
     class Meta:
         verbose_name = "Мастер"
