@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import ProceduresModels, ProblemsModel, PartOfBodyModel, MastersModel
+
+admin.site.register(ProceduresModels)
+admin.site.register(ProblemsModel)
+admin.site.register(PartOfBodyModel)
+admin.site.register(MastersModel)
