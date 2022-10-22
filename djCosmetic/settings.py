@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'news.apps.NewsConfig',
+    'products.apps.ProductsConfig',
+    'aesthetics_clinic.apps.AestheticsClinicConfig',
+
 ]
 
 MIDDLEWARE = [
