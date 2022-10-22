@@ -4,6 +4,7 @@ from django.db import models
 class PartOfBodyModel(models.Model):
     """Таблица Части Тела"""
     name = models.CharField('Часть тела', max_length=10)
+    slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
         return self.name
@@ -17,6 +18,7 @@ class ProblemsModel(models.Model):
     """Таблица проблемные моменты клиента с кожей, наименование "болезней" """
     name = models.CharField('Проблема', max_length=150)
     part_of_the_body = models.ForeignKey(PartOfBodyModel, verbose_name='Части тела', on_delete=models.CASCADE)
+    slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
         return self.name
@@ -34,7 +36,7 @@ class MastersModel(models.Model):
     photo = models.ImageField('Картинка', upload_to='masters/%Y/%m/%d')
     speciality = models.CharField("Специальность", max_length=50)
     experience = models.DateField('Когда начало карьеры')
-    slug = models.SlugField('Слаг', max_length=150)
+    slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
         return f"{self.second_name}-{self.first_name}-{self.first_name}"
@@ -55,6 +57,7 @@ class ProceduresModels(models.Model):
     protocol = models.TextField('Протокол', max_length=3000)
     result = models.TextField('Результат', max_length=1000)
     price = models.PositiveIntegerField("Цена")
+    slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
         return self.name

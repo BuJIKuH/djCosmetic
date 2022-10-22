@@ -10,6 +10,7 @@ class ProductsModel(models.Model):
     price = models.PositiveIntegerField('Цена')
     available = models.BooleanField(default=True)
     line = models.ForeignKey('CategoryLineModels', on_delete=models.CASCADE)
+    slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
         return f'{self.name} - {self.line}'
@@ -23,6 +24,7 @@ class CategoryLineModels(models.Model):
     """Таблица категории (линия косметики)"""
     name = models.CharField('Название', max_length=150)
     description = models.TextField('Описание', max_length=5000)
+    slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
         return self.name
