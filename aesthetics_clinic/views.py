@@ -23,4 +23,4 @@ class ProceduresViewDetail(DetailView):
     model = ProceduresModels
     template_name = 'procedures/procedures_detail.html'
     slug_url_kwarg = 'slug'
-    context_object_name = 'procedure'
+    context_object_name = 'item'

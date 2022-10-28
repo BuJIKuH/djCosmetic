@@ -1,8 +1,9 @@
 from django.urls import path
 
-from news import views
+from aesthetics_clinic import views
 
 urlpatterns = [
-    # path('news/', views.NewsView.as_view(), name='news'),
+    path('procedures/', views.ProceduresView.as_view(), name='procedures'),
+    path('procedures/<str:slug>/', views.ProceduresViewDetail.as_view(), name='view_procedures'),
 
     ]

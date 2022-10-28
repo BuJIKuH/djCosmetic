@@ -57,6 +57,7 @@ class ProceduresModels(models.Model):
     protocol = models.TextField('Протокол', max_length=3000)
     result = models.TextField('Результат', max_length=1000)
     price = models.PositiveIntegerField("Цена")
+    image = models.ImageField('Картинка', blank=True)
     slug = models.SlugField('Слаг', max_length=150, blank=True)
 
     def __str__(self):
