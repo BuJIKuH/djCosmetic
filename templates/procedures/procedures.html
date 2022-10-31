@@ -2,7 +2,7 @@
 {% block content %}
     <div class="col-lg-8 mx-auto">
         {% for item in procedure %}
-            <h1 class="brand-heading">{{ item.name }}</h1>
+            <h1 class="brand-heading">{{ item.name  }}</h1>
             <img src="{{ item.image.url }}" alt="" width="350" class=''>
             <p class="intro-text">{{ item.description|truncatewords:50 }}</p>
             <div class="d-none d-md-block">
