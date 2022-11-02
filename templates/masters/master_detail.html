@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-lg-8 mx-auto">
+            <h1 class="brand-heading">{{ item.first_name }} {{ item.second_name }} {{ item.last_name }}</h1>
+            <img src="{{ item.photo.url }}" alt="" width="350" class="mr-3">
+            <p class="intro-text">{{ item.speciality }}</p>
+            <p class="intro-text">{{ item.experience }}</p>
+
+    </div>
+{% endblock %}

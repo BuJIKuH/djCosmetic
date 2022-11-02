@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-lg-8 mx-auto">
+        {% for item in procedure %}
+            <h1 class="brand-heading">{{ item.name  }}</h1>
+            <img src="{{ item.image.url }}" alt="" width="350" class=''>
+            <p class="intro-text">{{ item.description|truncatewords:50 }}</p>
+            <div class="d-none d-md-block">
+                <a class="btn btn-primary" role="button" href="{{ item.get_absolute_url }}">Read more</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
