@@ -26,6 +26,8 @@ class NewsViewDetail(DetailView):
     slug_url_kwarg = 'slug'
     context_object_name = 'item'
 
+    #111
+
 
 
 
