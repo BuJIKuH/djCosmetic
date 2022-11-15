@@ -3,6 +3,7 @@ from django.urls import path
 from news import views
 
 urlpatterns = [
-    path('', views.NewsView.as_view(), name='news'),
-    path('news/<str:slug>/', views.NewsViewDetail.as_view(), name='view_news'),
+    path('api/v1/news/', views.NewsListApiView.as_view()),
+    path('api/v1/news/<str:slug>/', views.NewsApiViewUpdate.as_view()),
+    path('api/v1/news-destroy/<str:slug>/', views.NewsApiViewsDelete.as_view()),
     ]

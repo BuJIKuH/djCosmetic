@@ -1,32 +1,30 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
 
+from django.views.generic import ListView, DetailView
+from rest_framework import generics
+
+from news import serializers
 from news.models import NewsModel
 
 
-class NewsView(ListView):
+class NewsApiMixin:
+    queryset = NewsModel.objects.all()
+    serializer_class = serializers.NewsSerializer
+    lookup_field = 'slug'
+
+
+class NewsListApiView(NewsApiMixin, generics.ListCreateAPIView):
     """Вывод всех новостей"""
-    model = NewsModel
-    template_name = 'news/news.html'
-    context_object_name = 'news'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Новости'
-        return context
-
-    def get_queryset(self):
-        return NewsModel.objects.order_by('-date_create')
+    ...
 
 
-class NewsViewDetail(DetailView):
+class NewsApiViewUpdate(NewsApiMixin, generics.RetrieveUpdateAPIView):
     """Вывод новости по slug"""
-    model = NewsModel
-    template_name = 'news/news_detail.html'
-    slug_url_kwarg = 'slug'
-    context_object_name = 'item'
+    ...
 
 
+class NewsApiViewsDelete(NewsApiMixin, generics.RetrieveDestroyAPIView):
+    """Удаление записей"""
+    ...
 
 
 
